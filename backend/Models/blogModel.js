@@ -1,9 +1,14 @@
 const { Schema, model } = require('../connection');
 
 const mySchema = new Schema({
-    username : {type : String, required : true},
-    email:String,
-    password:String,
+    title:String,
+    category:String,
+    cover: String,
+    distribution:String,
+    tags:String,
+    competition:String,
+    contact:String,
+
 });
 
 module.exports = model('blog', mySchema);
