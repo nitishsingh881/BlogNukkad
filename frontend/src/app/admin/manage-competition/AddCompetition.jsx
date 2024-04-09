@@ -1,6 +1,37 @@
+'use client';
+import { useFormik } from 'formik'
 import React from 'react'
 
 const AddCompetition = () => {
+
+    const competitionForm = useFormik({
+        initialValues: {
+            topic: '',
+            description: '',
+            image: '',
+            startDate: new Date(),
+            endDate: new Date(),
+            prize: ''
+        },
+        onSubmit: (values) => {
+            console.log(values);
+
+            fetch('http://localhost:5000/competition/add', {
+                method: 'POST',
+                body: JSON.stringify(values),
+                headers: {
+                    'Content-Type' : 'application/json'
+                }
+            })
+            .then((response) => {
+                console.log(response.status);
+            }).catch((err) => {
+                console.log(err);
+            });
+
+        }
+    });
+
     return (
         <div>
             <div
@@ -39,22 +70,40 @@ const AddCompetition = () => {
                             </button>
                         </div>
                         {/* Modal body */}
-                        <form action="#">
+                        <form onSubmit={competitionForm.handleSubmit}>
                             <div className="grid gap-4 mb-4 sm:grid-cols-2">
-                                <div>
+                                <div className='col-span-2'>
                                     <label
                                         htmlFor="name"
                                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                     >
-                                        Name
+                                        Topic
                                     </label>
                                     <input
                                         type="text"
-                                        name="name"
-                                        id="name"
-                                        defaultValue="iPad Air Gen 5th Wi-Fi"
+                                        name="topic"
+                                        onChange={competitionForm.handleChange}
+                                        value={competitionForm.values.topic}
+                                        defaultValue="Enter The Topic"
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                         placeholder="Ex. Apple iMac 27“"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label
+                                        htmlFor="brand"
+                                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    >
+                                        Start Date
+                                    </label>
+                                    <input
+                                        type="date"
+                                        name="startDate"
+                                        onChange={competitionForm.handleChange}
+                                        value={competitionForm.values.startDate}
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+
                                     />
                                 </div>
                                 <div>
@@ -62,15 +111,15 @@ const AddCompetition = () => {
                                         htmlFor="brand"
                                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                     >
-                                        Brand
+                                        End Date
                                     </label>
                                     <input
-                                        type="text"
-                                        name="brand"
-                                        id="brand"
-                                        defaultValue="Google"
+                                        type="date"
+                                        name="endDate"
+                                        onChange={competitionForm.handleChange}
+                                        value={competitionForm.values.endDate}
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                        placeholder="Ex. Apple"
+
                                     />
                                 </div>
                                 <div>
@@ -78,16 +127,30 @@ const AddCompetition = () => {
                                         htmlFor="price"
                                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                     >
-                                        Price
+                                        Prize
                                     </label>
                                     <input
-                                        type="number"
-                                        defaultValue={399}
-                                        name="price"
-                                        id="price"
+                                        type="text"
+                                        name="prize"
+                                        onChange={competitionForm.handleChange}
+                                        value={competitionForm.values.prize}
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                        placeholder="$299"
+
                                     />
+                                    <div>
+                                        <label
+                                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                            htmlFor="file_input"
+                                        >
+                                            Upload file
+                                        </label>
+                                        <input
+                                            className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                            id="file_input"
+                                            type="file"
+                                        />
+                                    </div>
+
                                 </div>
                                 <div>
                                     <label
@@ -115,13 +178,12 @@ const AddCompetition = () => {
                                         Description
                                     </label>
                                     <textarea
-                                        id="description"
+                                        name='description'
+                                        onChange={competitionForm.handleChange}
+                                        value={competitionForm.values.description}
                                         rows={5}
                                         className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                         placeholder="Write a description..."
-                                        defaultValue={
-                                            "Standard glass, 3.8GHz 8-core 10th-generation Intel Core i7 processor, Turbo Boost up to 5.0GHz, 16GB 2666MHz DDR4 memory, Radeon Pro 5500 XT with 8GB of GDDR6 memory, 256GB SSD storage, Gigabit Ethernet, Magic Mouse 2, Magic Keyboard - US"
-                                        }
                                     />
                                 </div>
                             </div>
@@ -130,7 +192,7 @@ const AddCompetition = () => {
                                     type="submit"
                                     className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                                 >
-                                    Update product
+                                    Submit Topic
                                 </button>
                                 <button
                                     type="button"
