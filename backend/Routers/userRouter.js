@@ -71,7 +71,7 @@ router.post('/authenticate', (req,res) => {
 
         )
     }else{
-        res.status(401).json({message:'Invalid Cre'})
+        res.status(401).json({message:'Invalid Credentials'})
     }
 }).catch((err) => {
     req.status(500).json(err)

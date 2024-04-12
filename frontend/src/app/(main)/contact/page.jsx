@@ -4,14 +4,14 @@ const Contact = () => {
   return (
     <div>
       <>
-        <section className="bg-white dark:bg-slate-800" id="contact">
+        <section className="bg-white dark:bg-slate-900" id="contact">
           <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
             <div className="mb-4">
               <div className="mb-6 max-w-3xl text-center sm:text-center md:mx-auto md:mb-12">
 
-                <h2 className="font-heading mb-4 font-bold tracking-tight text-gray-900 dark:text-white text-3xl sm:text-5xl">
+                <h1 className="font-heading mb-4 font-bold tracking-tight text-gray-900 dark:text-white text-3xl sm:text-5xl">
                   Get in Touch
-                </h2>
+                </h1>
 
               </div>
             </div>
@@ -79,7 +79,7 @@ const Contact = () => {
                           Mobile: +91 888-4334-4545
                         </p>
                         <p className="text-gray-600 dark:text-slate-400">
-                          Mail: nukkadblog.com
+                          Mail: nukkadblog@gmail.com
                         </p>
                       </div>
                     </li>
@@ -111,116 +111,78 @@ const Contact = () => {
                         <p className="text-gray-600 dark:text-slate-400">
                           Saturday &amp; Sunday: 08:00am - 10:00pm
                         </p>
-                        <p>
-                          <>
-                            <div className="ml-4 mb-4"></div>
-                            <p>
-                              <h3 className="mb-1 text-lg font-medium leading-6 text-gray-900 dark:text-white">
-                                Connect with us on social media </h3>
-                            </p>
-                            <span className="inline-flex mt-6 justify-center sm:justify-start">
-                              <a className="text-gray-500 hover:text-gray-900" target="_blank"
-                                href="https://twitter.com/example"
-                              >
-                                <svg
-                                  fill="currentColor"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  className="w-6 h-6"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                                </svg>
-                              </a>
-                              <a
-                                className="ml-3 text-gray-500 hover:text-gray-900"
-                                href="https://www.instagram.com/example/"
-                                target="_blank"
-                              >
-                                <svg
-                                  fill="none"
-                                  stroke="currentColor"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  className="w-6 h-6"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <rect width={20} height={20} x={2} y={2} rx={5} ry={5} />
-                                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" />
-                                </svg>
-                              </a>
-                            </span>
-                          </>
-
-                        </p>
                       </div>
                     </li>
                   </ul>
                 </div>
-                <div className="card h-fit max-w-6xl p-5 md:p-12" id="form">
-                  <h2 className="mb-4 text-2xl font-bold dark:text-white">
-                    Contact us
-                  </h2>
-                  <form id="contactForm">
-                    <div className="mb-6">
-                      <div className="mx-0 mb-1 sm:mb-4">
-                        <div className="mx-0 mb-1 sm:mb-4">
-                          <label
-                            htmlFor="name"
-                            className="pb-1 text-xs uppercase tracking-wider"
-                          />
-                          <input
-                            type="text"
-                            id="name"
-                            autoComplete="given-name"
-                            placeholder="Your name"
-                            className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0"
-                            name="name"
-                          />
-                        </div>
-                        <div className="mx-0 mb-1 sm:mb-4">
-                          <label
-                            htmlFor="email"
-                            className="pb-1 text-xs uppercase tracking-wider"
-                          />
-                          <input
-                            type="email"
-                            id="email"
-                            autoComplete="email"
-                            placeholder="Your email address"
-                            className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0"
-                            name="email"
-                          />
-                        </div>
-                      </div>
-                      <div className="mx-0 mb-1 sm:mb-4">
-                        <label
-                          htmlFor="textarea"
-                          className="pb-1 text-xs uppercase tracking-wider"
-                        />
-                        <textarea
-                          id="textarea"
-                          name="textarea"
-                          cols={30}
-                          rows={5}
-                          placeholder="Write your message..."
-                          className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0"
-                          defaultValue={""}
-                        />
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <button
-                        type="submit"
-                        className="w-full bg-blue-800 text-white px-6 py-3 font-xl rounded-md sm:mb-0"
-                      >
-                        Send
-                      </button>
-                    </div>
-                  </form>
-                </div>
+               <div>
+               <>
+  <meta charSet="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <form action="https://fabform.io/f/{form-id}" method="post">
+    <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+      <h1 className="text-2xl font-bold text-gray-700 mb-6">Contact Us</h1>
+      <div className="mb-4">
+        <label
+          htmlFor="name"
+          className="block text-sm font-medium text-gray-700"
+        >
+          <strong>Name</strong>
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          className="border-2 border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          placeholder="Nitish Singh"
+          required=""
+        />
+      </div>
+      <div className="mb-4">
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-700"
+        >
+         <strong> Email</strong>
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          className="border-2 border-gray-500 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          placeholder="blog@example.com"
+          required=""
+        />
+      </div>
+      <div className="mb-8">
+        <label
+          htmlFor="message"
+          className="block text-sm font-medium text-gray-700"
+        >
+          <strong>Message</strong>
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          className="border-2 border-gray-500 p-2 rounded-lg w-full h-32 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          placeholder="Your message"
+          required=""
+          defaultValue={""}
+        />
+      </div>
+      <button
+        type="submit"
+        className="bg-indigo-500 text-white p-2 rounded-lg font-semibold w-full hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
+      >
+        Send
+      </button>
+     
+    </div>
+  </form>
+</>
+
+               </div>
               </div>
             </div>
           </div>
