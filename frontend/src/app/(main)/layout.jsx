@@ -6,7 +6,7 @@ import Toaster from 'react-hot-toast'
 const MainLayout = ({ children }) => {
     return (
         <>
-            <Navbar />
+            <Navbar/>
             <Toaster />
             {children}
             <Footer/>

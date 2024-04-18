@@ -1,14 +1,14 @@
-const { Schema, model } = require('../connection');
+const { Schema, model, Types } = require('../connection');
 
 const mySchema = new Schema({
-    title:String,
-    category:String,
+    user: { type: Types.ObjectId, ref: 'user' },
+    title: String,
+    category: String,
     cover: String,
-    distribution:String,
-    tags:String,
-    competition:String,
-    contact:String,
-
+    description: String,
+    tags: String,
+    content: String,
+    createdAt: { type: Date, default: Date.now }
 });
 
 module.exports = model('blog', mySchema);

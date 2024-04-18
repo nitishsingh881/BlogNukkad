@@ -8,7 +8,7 @@ const CompetitionDetails = () => {
   console.log(id);
 
   const fetchCompetitionData = () => {
-
+    
   }
 
   return (

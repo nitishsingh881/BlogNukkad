@@ -1,23 +1,32 @@
+'use client'
 import React from 'react'
 
 const Navbar = () => {
   return (
     <div>
       <>
-        <header className="shadow-md py-4 px-4 sm:px-10 bg-white font-sans min-h-[70px]">
-          <div className="flex flex-wrap items-center gap-4">
-            <a href="javascript:void(0)">
-              <img
-                src="https://readymadeui.com/readymadeui.svg"
-                alt="logo"
-                className="w-36"
-              />
-            </a>
+      <nav id="header" className="fixed w-full z-30 top-0 bg-white text-white">
+          <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+            <div className="pl-4 flex items-center">
+              <a
+                className="toggleColour text text-blue-700 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+                href="#"
+              >
+                {/*Icon from: http://www.potlabicons.com/ */}
+
+                BLOG NUKKAD
+              </a>
+            </div>
             <div className="flex ml-auto lg:order-1">
-              <button className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#f63bb5] bg-[#924df9] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]">
+           
+              <a
+                  href="/login"
+                button className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#f63bb5] bg-[#924df9] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]">
                 Login
-              </button>
+              </a>
+              
               <button className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#e945f8] bg-[#421fa1] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff] ml-4">
+          
                 Sign up
               </button>
               <button className="lg:hidden ml-7">
@@ -45,14 +54,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
-                <a
-                  href="javascript:void(0)"
-                  className="lg:hover:text-[#007bff] text-black block font-semibold text-[25px]"
-                >
-                  Team
-                </a>
-              </li>
-              <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
+
                 <a
                   href="javascript:void(0)"
                   className="lg:hover:text-[#007bff] text-black block font-semibold text-[25px]"
@@ -70,7 +72,7 @@ const Navbar = () => {
               </li>
               <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
                 <a
-                  href="javascript:void(0)"
+                  href="/about"
                   className="lg:hover:text-[#007bff] text-black block font-semibold text-[25px]"
                 >
                   About
@@ -78,7 +80,7 @@ const Navbar = () => {
               </li>
               <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
                 <a
-                  href="javascript:void(0)"
+                  href="/contact"
                   className="lg:hover:text-[#007bff] text-black block font-semibold text-[25px]"
                 >
                   Contact
@@ -86,7 +88,10 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-        </header>
+
+
+          <hr className="border-b border-gray-100 opacity-25 my-0 py-0" />
+        </nav>
 
       </>
     </div>
