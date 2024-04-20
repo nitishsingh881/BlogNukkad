@@ -45,6 +45,21 @@ const CreateBlog = () => {
     }
   })
 
+  const uploadFile = (e) => {
+    const file = e.target.files[0];
+    const fd = new FormData();
+    fd.append("myfile", file);
+    fetch("http://localhost:5000/util/uploadfile", {
+      method: "POST",
+      body: fd,
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("file uploaded");
+        blogForm.values.cover = file.name;
+      }
+    });
+  };
+
   return (
     <div>
       <div className="bg-white border-4 rounded-lg shadow relative m-5">
@@ -99,8 +114,8 @@ const CreateBlog = () => {
                 <input
                   type="file"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
+                  onChange={uploadFile}
                   placeholder=""
-                  required=""
                 />
               </div>
               <div className="col-span-2 sm:col-span-3">
@@ -173,7 +188,7 @@ const CreateBlog = () => {
             className="text-white bg-cyan-600 hover:bg-cyan-300 focus:ring-4 focus:ring-cyan-8900 font-medium rounded-lg text-sm px-10 py-3 text-center"
             type="submit"
           >
-            Save all
+            Save Blog
           </button>
         </div>
           </form>
