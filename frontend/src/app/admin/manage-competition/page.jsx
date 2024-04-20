@@ -8,6 +8,8 @@ const ManageCompetition = () => {
 
   let [isOpen, setIsOpen] = useState(false)
 
+  const 
+
   return (
     <div>
       <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
@@ -18,7 +20,7 @@ const ManageCompetition = () => {
           </Dialog.Description>
 
 
-          <AddCompetition close = {() => setIsOpen(false)} />
+          <AddCompetition close={() => setIsOpen(false)} />
 
           {/* <button onClick={() => setIsOpen(false)}>Deactivate</button>
         <button onClick={() => setIsOpen(false)}>Cancel</button> */}
@@ -36,219 +38,142 @@ const ManageCompetition = () => {
 
       {/* table design */}
 
-      <table className="min-w-full divide-y divide-gray-200 overflow-x-auto">
-  <thead className="bg-gray-50">
-    <tr>
-      <th
-        scope="col"
-        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-      >
-        Title
-      </th>
-      <th
-        scope="col"
-        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-      >
-        Category
-      </th>
-      <th
-        scope="col"
-        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-      >
-        Status
-      </th>
-      <th
-        scope="col"
-        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-      >
-        Tags
-      </th>
-      <th
-        scope="col"
-        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-      >
-        Description
-      </th>
-      <th
-        scope="col"
-        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-      >
-        Content
-      </th>
-    </tr>
-  </thead>
-  <tbody className="bg-white divide-y divide-gray-200">
-    <tr>
-      <td className="px-6 py-4 whitespace-nowrap">
-        <div className="flex items-center">
-          <div className="flex-shrink-0 h-10 w-10">
-            <img
-              className="h-10 w-10 rounded-full"
-              src="https://i.pravatar.cc/150?img=1"
-              alt=""
-            />
-          </div>
-          <div className="ml-4">
-            <div className="text-sm font-medium text-gray-900">Jane Cooper</div>
-            <div className="text-sm text-gray-500">jane.cooper@example.com</div>
-          </div>
+      <>
+        {/* Component: Underline Table */}
+        <div className="w-full overflow-x-auto">
+          <table
+            className="w-full text-left border-collapse rounded w-overflow-x-auto "
+            cellSpacing={0}
+          >
+            <tbody>
+              <tr className="border-b border-slate-300">
+                <th
+                  scope="col"
+                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
+                >
+                  Title
+                </th>
+                <th
+                  scope="col"
+                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
+                >
+                  Cover
+                </th>
+                <th
+                  scope="col"
+                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
+                >
+                  Category
+                </th>
+                <th
+                  scope="col"
+                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
+                >
+                  Description
+                </th>
+                <th
+                  scope="col"
+                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
+                >
+                  Tags
+                </th>
+                <th
+                  scope="col"
+                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
+                >
+                  Content
+                </th>
+              </tr>
+              <tr className="border-b border-slate-200">
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Ayub Salas
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Designer
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Carroll Group
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Member
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  salas_a
+                </td>
+              </tr>
+              <tr className="border-b border-slate-200">
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Agnes Sherman
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Developer
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Apple
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Admin
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  shermanagnes
+                </td>
+              </tr>
+              <tr className="border-b border-slate-200">
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Jemma Cummings
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Senior Designer
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  20goto10
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Member
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  jemmaC
+                </td>
+              </tr>
+              <tr className="border-b border-slate-200">
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Jimi Cardenas
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Copywriter
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Wind-UI
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Owner
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  cardenasji
+                </td>
+              </tr>
+              <tr className="border-b border-slate-200">
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Mateusz Tucker
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Project Manager
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Tailwindui
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  Member
+                </td>
+                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  mt
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-900">
-          Regional Paradigm Technician
-        </div>
-        <div className="text-sm text-gray-500">Optimization</div>
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap">
-        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-          Active
-        </span>
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        Admin
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        jane.cooper@example.com
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-        <a href="#" className="text-indigo-600 hover:text-indigo-900">
-          Edit
-        </a>
-        <a href="#" className="ml-2 text-red-600 hover:text-red-900">
-          Delete
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td className="px-6 py-4 whitespace-nowrap">
-        <div className="flex items-center">
-          <div className="flex-shrink-0 h-10 w-10">
-            <img
-              className="h-10 w-10 rounded-full"
-              src="https://i.pravatar.cc/150?img=1"
-              alt=""
-            />
-          </div>
-          <div className="ml-4">
-            <div className="text-sm font-medium text-gray-900">Jane Cooper</div>
-            <div className="text-sm text-gray-500">jane.cooper@example.com</div>
-          </div>
-        </div>
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-900">
-          Regional Paradigm Technician
-        </div>
-        <div className="text-sm text-gray-500">Optimization</div>
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap">
-        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-          Active
-        </span>
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        Admin
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        jane.cooper@example.com
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-        <a href="#" className="text-indigo-600 hover:text-indigo-900">
-          Edit
-        </a>
-        <a href="#" className="ml-2 text-red-600 hover:text-red-900">
-          Delete
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td className="px-6 py-4 whitespace-nowrap">
-        <div className="flex items-center">
-          <div className="flex-shrink-0 h-10 w-10">
-            <img
-              className="h-10 w-10 rounded-full"
-              src="https://i.pravatar.cc/150?img=1"
-              alt=""
-            />
-          </div>
-          <div className="ml-4">
-            <div className="text-sm font-medium text-gray-900">Jane Cooper</div>
-            <div className="text-sm text-gray-500">jane.cooper@example.com</div>
-          </div>
-        </div>
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-900">
-          Regional Paradigm Technician
-        </div>
-        <div className="text-sm text-gray-500">Optimization</div>
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap">
-        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-          Active
-        </span>
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        Admin
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        jane.cooper@example.com
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-        <a href="#" className="text-indigo-600 hover:text-indigo-900">
-          Edit
-        </a>
-        <a href="#" className="ml-2 text-red-600 hover:text-red-900">
-          Delete
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td className="px-6 py-4 whitespace-nowrap">
-        <div className="flex items-center">
-          <div className="flex-shrink-0 h-10 w-10">
-            <img
-              className="h-10 w-10 rounded-full"
-              src="https://i.pravatar.cc/150?img=1"
-              alt=""
-            />
-          </div>
-          <div className="ml-4">
-            <div className="text-sm font-medium text-gray-900">Jane Cooper</div>
-            <div className="text-sm text-gray-500">jane.cooper@example.com</div>
-          </div>
-        </div>
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-900">
-          Regional Paradigm Technician
-        </div>
-        <div className="text-sm text-gray-500">Optimization</div>
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap">
-        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-          Active
-        </span>
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        Admin
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        jane.cooper@example.com
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-        <a href="#" className="text-indigo-600 hover:text-indigo-900">
-          Edit
-        </a>
-        <a href="#" className="ml-2 text-red-600 hover:text-red-900">
-          Delete
-        </a>
-      </td>
-    </tr>
-    {/* More rows... */}
-  </tbody>
-</table>
+        {/* End Underline Table */}
+      </>
 
 
 
