@@ -42,6 +42,7 @@ const Login = () => {
         console.log(data);
         sessionStorage.setItem('user', JSON.stringify(data));
         action.resetForm();
+        router.push('/user/create-blog');
       }
       else if (res.status === 400
       ) {

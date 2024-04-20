@@ -2,6 +2,7 @@
 const express = require('express');
 const userRouter = require('./Routers/userRouter');
 const competitionRouter = require('./Routers/competitionRouter');
+const blogRouter = require('./Routers/blogRouter');
 
 const cors = require('cors');
 
@@ -17,6 +18,7 @@ app.use(express.json());
 
 app.use( '/user', userRouter );
 app.use( '/competition', competitionRouter );
+app.use( '/blog', blogRouter );
 
 app.get('/', (req, res) => {
     res.send('response from express');
