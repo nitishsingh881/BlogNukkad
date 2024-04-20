@@ -1,14 +1,82 @@
 'use client';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AddCompetition from './AddCompetition';
 import { Dialog } from '@headlessui/react';
 import { IconPlus } from '@tabler/icons-react';
+import toast from 'react-hot-toast';
 
 const ManageCompetition = () => {
 
-  let [isOpen, setIsOpen] = useState(false)
+  let [isOpen, setIsOpen] = useState(false);
+  const [competitionList, setCompetitionList] = useState([]);
 
-  const 
+
+  const fetchCompetitionData = () => {
+    fetch('http://localhost:5000/competition/getall')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setCompetitionList(data);
+      })
+      .catch(err => console.log(err));
+
+  }
+
+  useEffect(() => {
+    fetchCompetitionData();
+  }, [])
+
+  const deleteCompetition = (id) => {
+    fetch('http://localhost:5000/competition/delete/' + id, {
+      method: 'DELETE'
+    })
+      .then(response => {
+        if (response.status === 200) {
+          fetchCompetitionData();
+          toast.success('Competition deleted successfully');
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        toast.error('Competition not deleted');
+      });
+  }
+
+  const displayCompetitions = () => {
+    return competitionList.map((competition, index) => (
+      <tr className="border-b border-slate-200">
+        <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+          <img src={'http://localhost:5000/' + competition.image} />
+        </td>
+        <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+          {competition.title}
+        </td>
+        <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+          {competition.description}
+        </td>
+        <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+          {competition.prize}
+        </td>
+        <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+          {new Date(competition.startDate).toLocaleDateString()}
+        </td>
+        <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+          {new Date(competition.endDate).toLocaleDateString()}
+        </td>
+        <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+          {new Date(competition.createdAt).toLocaleDateString()}
+        </td>
+        <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+          <button onClick={() => deleteCompetition(competition._id)}>Delete</button>
+        </td>
+        <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+          <button>Edit</button>
+        </td>
+
+      </tr>
+    ))
+  }
+
 
   return (
     <div>
@@ -51,19 +119,13 @@ const ManageCompetition = () => {
                   scope="col"
                   className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
                 >
-                  Title
-                </th>
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
-                >
                   Cover
                 </th>
                 <th
                   scope="col"
                   className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
                 >
-                  Category
+                  Topic
                 </th>
                 <th
                   scope="col"
@@ -75,100 +137,30 @@ const ManageCompetition = () => {
                   scope="col"
                   className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
                 >
-                  Tags
+                  Price
                 </th>
                 <th
                   scope="col"
                   className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
                 >
-                  Content
+                  Start Date
+                </th>
+                <th
+                  scope="col"
+                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
+                >
+                  End Date
+                </th>
+                <th
+                  scope="col"
+                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
+                >
+                  Created On
                 </th>
               </tr>
-              <tr className="border-b border-slate-200">
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Ayub Salas
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Designer
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Carroll Group
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Member
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  salas_a
-                </td>
-              </tr>
-              <tr className="border-b border-slate-200">
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Agnes Sherman
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Developer
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Apple
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Admin
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  shermanagnes
-                </td>
-              </tr>
-              <tr className="border-b border-slate-200">
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Jemma Cummings
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Senior Designer
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  20goto10
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Member
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  jemmaC
-                </td>
-              </tr>
-              <tr className="border-b border-slate-200">
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Jimi Cardenas
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Copywriter
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Wind-UI
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Owner
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  cardenasji
-                </td>
-              </tr>
-              <tr className="border-b border-slate-200">
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Mateusz Tucker
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Project Manager
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Tailwindui
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  Member
-                </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  mt
-                </td>
-              </tr>
+              {
+                displayCompetitions()
+              }
             </tbody>
           </table>
         </div>

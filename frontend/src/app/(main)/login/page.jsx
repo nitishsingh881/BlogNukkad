@@ -50,7 +50,7 @@ const Login = () => {
       }
 
     },
-    validationSchema: LoginSchema
+    // validationSchema: LoginSchema
 
   })
 
