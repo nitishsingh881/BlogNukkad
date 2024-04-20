@@ -29,7 +29,7 @@ const signup = () => {
         console.log(values);
         resetForm();
       }, 3000);
-    },
+    }, 
     validationSchema: signupValidationSchema
   })
 
