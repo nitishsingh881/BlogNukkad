@@ -23,8 +23,8 @@ const Home = () => {
                 Login
               </button>
               
+            
               <button className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#e945f8] bg-[#421fa1] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff] ml-4">
-          
                 Sign up
               </button>
               <button className="lg:hidden ml-7">
