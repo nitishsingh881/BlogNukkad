@@ -51,7 +51,7 @@ const Navbar = () => {
             <ul className="flex lg:ml-12 lg:space-x-4 max-lg:space-y-2 max-lg:block max-lg:w-full">
               <li className="max-lg:border-b max-lg:bg-[#007bff] max-lg:py-2 px-3 max-lg:rounded">
                 <a
-                  href="javascript:void(0)"
+                  href="/"
                   className="lg:hover:text-[#007bff] text-[#007bff] max-lg:text-white block font-semibold text-[25px]"
                 >
                   Home
