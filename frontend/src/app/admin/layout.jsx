@@ -5,6 +5,7 @@ const Layout = ({ children }) => {
     return (
         <>
             <AdminNavbar />
+            <div className='pt-20'></div>
             {children}
         </>
     )

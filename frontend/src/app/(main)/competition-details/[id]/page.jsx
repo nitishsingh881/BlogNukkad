@@ -108,8 +108,12 @@ const CompetitionDetails = () => {
               return <option value={blog._id}>{blog.title}</option>
             })}
           </select>
-
-          <button onClick={attemptParticipate}>Participate in Compeition</button>
+          {
+            checkCompetionExpired() ? displayWinner() :
+              (
+                <button onClick={attemptParticipate}>Participate in Compeition</button>
+              )
+          }
 
         </div>
       </>
@@ -118,10 +122,29 @@ const CompetitionDetails = () => {
     }
   }
 
+  const checkCompetionExpired = () => {
+    const currentDate = new Date();
+    const endDate = new Date(competitionData.endDate);
+    if (currentDate > endDate) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  const displayWinner = () => {
+
+    return <div>
+      <h3>Competition Over</h3>
+      {
+        competitionData.winner ? <p>Winner: {competitionData.winner.name}</p> : <p>Result not declared Yet</p>
+      }
+    </div>
+  }
+
   return (
     <div className='pt-40'>
       {displayCompetition()}
-
     </div>
   )
 }

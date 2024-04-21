@@ -4,6 +4,7 @@ import AddCompetition from './AddCompetition';
 import { Dialog } from '@headlessui/react';
 import { IconPlus } from '@tabler/icons-react';
 import toast from 'react-hot-toast';
+import Link from 'next/link';
 
 const ManageCompetition = () => {
 
@@ -70,7 +71,7 @@ const ManageCompetition = () => {
           <button onClick={() => deleteCompetition(competition._id)}>Delete</button>
         </td>
         <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-          <button>Edit</button>
+          <Link href={'/admin/view-competition/'+competition._id}>View Details</Link>
         </td>
 
       </tr>
