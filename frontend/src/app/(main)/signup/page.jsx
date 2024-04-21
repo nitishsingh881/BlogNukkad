@@ -26,14 +26,6 @@ const signup = () => {
     },
     onSubmit: (values, { resetForm }) => {
 
-<<<<<<< HEAD
-      setTimeout(() => {
-        console.log(values);
-        resetForm();
-      }, 3000);
-    }, 
-    validationSchema: signupValidationSchema
-=======
       fetch('http://localhost:5000/user/add', {
         method: 'POST',
         headers: {
@@ -56,7 +48,6 @@ const signup = () => {
         });
     },
     // validationSchema: signupValidationSchema
->>>>>>> 7227d4155068920a61bf78b1f0d68cc7e00d8b3a
   })
 
 
