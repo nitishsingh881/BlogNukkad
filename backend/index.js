@@ -3,6 +3,8 @@ const express = require('express');
 const userRouter = require('./Routers/userRouter');
 const competitionRouter = require('./Routers/competitionRouter');
 const blogRouter = require('./Routers/blogRouter');
+const utilRouter = require('./Routers/utilRouter');
+const participationRouter = require('./Routers/participationRouter');
 
 const cors = require('cors');
 
@@ -19,13 +21,14 @@ app.use(express.json());
 app.use( '/user', userRouter );
 app.use( '/competition', competitionRouter );
 app.use( '/blog', blogRouter );
+app.use( '/util', utilRouter );
+app.use( '/participation', participationRouter );
+
+app.use( express.static('./static/uploads') );
 
 app.get('/', (req, res) => {
     res.send('response from express');
 });
 
-app.get('/add', (req, res) => {
-    res.send('add response from express');
-});
 
 app.listen( port, () => { console.log('server started'); } );
