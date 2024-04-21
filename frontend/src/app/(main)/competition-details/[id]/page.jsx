@@ -97,12 +97,12 @@ const CompetitionDetails = () => {
   const displayCompetition = () => {
     if (competitionData !== null) {
       return <>
-        <header className='py-16 bg-white'>
-          <h1 className='text-3xl'>{competitionData.topic}</h1>
+        <header className='py-6 bg-white'>
+          <h1 className='text-3xl text-red-700 text-center'>{competitionData.topic}</h1>
         </header>
         <div>
 
-          <select onChange={e => setSelBlog(e.target.value)}>
+          <select onChange={e => setSelBlog(e.target.value)} className=''>
             <option value="">Select Blog</option>
             {blogList.map((blog) => {
               return <option value={blog._id}>{blog.title}</option>

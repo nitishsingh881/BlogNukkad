@@ -7,6 +7,7 @@ const mySchema = new Schema({
     startDate: Date,
     endDate: Date,
     prize: String,
+    winner: {type : String, ref : 'user'},
     createdAt: { type: Date, default: Date.now }
 });
 
