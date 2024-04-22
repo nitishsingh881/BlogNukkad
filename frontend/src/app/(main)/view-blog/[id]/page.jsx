@@ -33,28 +33,37 @@ const ViewBlog = () => {
   }, []);
 
   const formatDate = (date) => {
-    return new Date(date).getDay() + ', ' + new Date(date).getMonth() + ' '+ new Date(date).getDate() + ', ' + new Date(date).getFullYear();
+    return new Date(date).getDay() + ', ' + new Date(date).getMonth() + ' ' + new Date(date).getDate() + ', ' + new Date(date).getFullYear();
   }
 
   const displayBlogs = () => {
     if (blogData !== null)
       return (
         <div>
-          <p className='text-center text-slate-500 text-lg'>{new Date(blogData.createdAt).toLocaleDateString()}</p>
-          <h1 className='text-center text-slate-300 text-6xl font-bold'>{blogData.title}</h1>
-          <hr className='my-10' />
+          <h1 className='text-center text-blue-900  text-6xl font-bold'>{blogData.title}</h1>
+
+          <div className=''>
+            <img src="https://cdn.pixabay.com/photo/2012/05/07/18/57/blog-49006_640.png" className="h-60  mx-auto" alt="" />
+          </div>
+
+          <hr className='mb-20 border-black' />
           <div className='grid grid-cols-12'>
             <div className="col-span-3">
-              <div className="flex items-center gap-4">
-                <img className="w-10 h-10 rounded-full" src={`${process.env.NEXT_PUBLIC_API_URL}/${blogData.user.avatar}`} alt="" />
+              <img className="w-16 h-16 rounded-full block mx-auto  mb-4 " src={`${process.env.NEXT_PUBLIC_API_URL}/${blogData.user.avatar}`} alt="" />
+
+              <div className="flex ">
                 <div className="font-medium dark:text-white">
-                  <p>{blogData.user.name}</p>
-                  <div className="text-sm text-gray-500 dark:text-gray-400">Joined in {MONTH_NAMES[new Date(blogData.createdAt).getMonth()] + ' ' + new Date(blogData.createdAt).getFullYear() }</div>
+                  <p className='text-center text-slate-500 text-md'>{new Date(blogData.createdAt).toLocaleDateString()}</p>
+
+                  <p className='text-center text-xl'>{blogData.user.name}</p>
+                  <div className="text-sm text-gray-500 text-center dark:text-gray-400">Joined in {MONTH_NAMES[new Date(blogData.createdAt).getMonth()] + ' ' + new Date(blogData.createdAt).getFullYear()}</div>
+                  <hr className='my-4 border-black' />
+                  <p className="">{blogData.tags}</p>
                 </div>
               </div>
             </div>
-            <div className="col-span-9">
-              <MDEditor.Markdown source={blogData.content} height="200px" />
+            <div className="col-span-9 overflow-auto">
+              <MDEditor.Markdown source={blogData.content} className='overflow-auto' height="200px" />
             </div>
           </div>
         </div>

@@ -34,6 +34,20 @@ const AddCompetition = ({close}) => {
 
         }
     });
+    const uploadFile = (e) => {
+        const file = e.target.files[0];
+        const fd = new FormData();
+        fd.append("myfile", file);
+        fetch("http://localhost:5000/util/uploadfile", {
+          method: "POST",
+          body: fd,
+        }).then((res) => {
+          if (res.status === 200) {
+            console.log("file uploaded");
+            competitionForm.values.cover = file.name;
+          }
+        });
+      };
 
     return (
         <div>
@@ -49,7 +63,7 @@ const AddCompetition = ({close}) => {
                         {/* Modal header */}
                         <div className="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
                             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                                Update Product
+                                Add Competition
                             </h3>
                             <button
                                 type="button"
@@ -152,6 +166,7 @@ const AddCompetition = ({close}) => {
                                             className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                             id="file_input"
                                             type="file"
+                                            onChange={uploadFile}
                                         />
                                     </div>
 
@@ -194,7 +209,7 @@ const AddCompetition = ({close}) => {
                             <div className="flex items-center space-x-4">
                                 <button
                                     type="submit"
-                                    className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                                    className="bg-blue-800 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                                 >
                                     Submit Topic
                                 </button>

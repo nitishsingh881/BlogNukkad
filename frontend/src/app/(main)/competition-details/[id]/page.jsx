@@ -101,13 +101,14 @@ const CompetitionDetails = () => {
   const displayCompetition = () => {
     if (competitionData !== null) {
       return <>
-        <header className='py-6 bg-white'>
-          <h1 className='text-3xl text-red-700 text-center'>{competitionData.topic}</h1>
+      <div className="h-96">
+        <header className=' bg-white'>
+          <h1 className='text-3xl text-purple-800 font-semibold mb-12 text-center'>{competitionData.topic}</h1>
         </header>
         <div>
 
-          <select onChange={e => setSelBlog(e.target.value)} className=''>
-            <option value="">Select Blog</option>
+          <select onChange={e => setSelBlog(e.target.value)} className='mx-auto text-center mb-12 block my-3'>
+            <option  value="">Select Blog</option>
             {blogList.map((blog) => {
               return <option value={blog._id}>{blog.title}</option>
             })}
@@ -119,6 +120,7 @@ const CompetitionDetails = () => {
               )
           }
   {/* <button onClick={attemptParticipate}>Participate in Compeition</button> */}
+        </div>
         </div>
       </>
     } else {
@@ -139,9 +141,9 @@ const CompetitionDetails = () => {
   const displayWinner = () => {
 
     return <div>
-      <h3>Competition Over</h3>
+      <h3 className='text-red-800 text-center text-2xl font-semibold animate-bounce'>Competition Over</h3>
       {
-        competitionData.winner ? <p>Winner: {competitionData.winner.name}</p> : <p>Result not declared Yet</p>
+        competitionData.winner ? <p className='text-center text-lg my-3 '>Winner: {competitionData.winner.name}</p> : <p className='text-center text-lg my-3 '>Result not declared Yet</p>
       }
     </div>
   }
@@ -150,7 +152,9 @@ const CompetitionDetails = () => {
     <div className='pt-40'>
       {displayCompetition()}
     </div>
+    
   )
+  
 }
 
 export default CompetitionDetails

@@ -63,10 +63,18 @@ const Navbar = () => {
               </li>
               <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
                 <a
-                  href="javascript:void(0)"
+                  href="/browse-blog"
                   className="lg:hover:text-[#007bff] text-black block font-semibold text-[25px]"
                 >
                   Blog
+                </a>
+              </li>
+              <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
+                <a
+                  href="/browse-competition"
+                  className="lg:hover:text-[#007bff] text-black block font-semibold text-[25px]"
+                >
+                  Competition
                 </a>
               </li>
               <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">

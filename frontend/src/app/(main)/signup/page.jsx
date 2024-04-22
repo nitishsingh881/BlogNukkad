@@ -3,8 +3,10 @@ import React from 'react'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 const signup = () => {
+  const router = useRouter()
   const signupValidationSchema = Yup.object().shape({
     email: Yup.string().email('Email is invalid').required('Email is required'),
     name: Yup.string().required('Name is required'),
@@ -36,6 +38,7 @@ const signup = () => {
         .then(response => {
           if (response.status === 200) {
             toast.success('User added successfully');
+            router.push("/login")
             return response.json();
           }
         })

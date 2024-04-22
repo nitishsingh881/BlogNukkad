@@ -45,8 +45,8 @@ const ManageCompetition = () => {
 
   const displayCompetitions = () => {
     return competitionList.map((competition, index) => (
-      <tr className="border-b border-slate-200">
-        <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+      <tr className="border-b  border-slate-200">
+          <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
           <img src={'http://localhost:5000/' + competition.image} />
         </td>
         <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
@@ -67,12 +67,25 @@ const ManageCompetition = () => {
         <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
           {new Date(competition.createdAt).toLocaleDateString()}
         </td>
-        <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-          <button onClick={() => deleteCompetition(competition._id)}>Delete</button>
-        </td>
-        <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-          <Link href={'/admin/view-competition/'+competition._id}>View Details</Link>
-        </td>
+      
+      
+        <td className="p-3 px-5 flex justify-end">
+            
+              <button
+                type="button"
+                onClick={() => deleteCompetition(competition._id)}
+                className="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+              >
+                Delete
+              </button>
+              <Link href={'/admin/view-competition/'+competition._id}>  <button
+              
+              type="button"
+              className="mr-3 text-sm bg-blue-500 mx-3 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+            >
+              Edit
+            </button></Link>
+            </td>
 
       </tr>
     ))
@@ -99,74 +112,45 @@ const ManageCompetition = () => {
       <button
         type="button"
         onClick={e => setIsOpen(true)}
-        className="mt-16 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+        className="mt-16 py-3 mx-2 mb-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
       >
-        <IconPlus /> Button
+        <IconPlus /> Add Competition
       </button>
 
 
       {/* table design */}
 
+
+
       <>
-        {/* Component: Underline Table */}
-        <div className="w-full overflow-x-auto">
-          <table
-            className="w-full text-left border-collapse rounded w-overflow-x-auto "
-            cellSpacing={0}
-          >
-            <tbody>
-              <tr className="border-b border-slate-300">
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
-                >
-                  Cover
-                </th>
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
-                >
-                  Topic
-                </th>
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
-                >
-                  Description
-                </th>
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
-                >
-                  Price
-                </th>
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
-                >
-                  Start Date
-                </th>
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
-                >
-                  End Date
-                </th>
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-200 "
-                >
-                  Created On
-                </th>
-              </tr>
-              {
-                displayCompetitions()
-              }
-            </tbody>
-          </table>
-        </div>
-        {/* End Underline Table */}
-      </>
+  {/* component */}
+  <div className="text-gray-900 bg-gray-200">
+   
+    <div className="px-3 py-4 flex justify-center">
+      <table className="w-full text-md bg-white shadow-md rounded mb-4">
+        <thead>
+          <tr className="border-b">
+            <th className="text-left p-3 px-5">Cover</th>
+            <th className="text-left p-3 px-5">Topic</th>
+            <th className="text-left p-3 px-5">Description</th>
+            <th className="text-left p-3 px-5">Price</th>
+            <th className="text-left p-3 px-5">Start Date</th>
+            <th className="text-left p-3 px-5">End Date</th>
+            <th className="text-left p-3 px-5">Created On</th>
+            <th />
+          </tr>
+          </thead>
+          <tbody>
+          
+            {displayCompetitions()}
+          
+      
+          </tbody>
+    
+      </table>
+    </div>
+  </div>
+</>
 
 
 

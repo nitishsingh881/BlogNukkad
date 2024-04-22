@@ -1,11 +1,12 @@
 'use client'
 import MDEditor from '@uiw/react-md-editor';
 import { useFormik } from 'formik';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 
 const CreateBlog = () => {
-
+const router = useRouter();
   const [value, setValue] = React.useState("**Hello world!!!**");
   const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
@@ -34,6 +35,7 @@ const CreateBlog = () => {
           console.log(response.status);
           if(response.status === 200){
             toast.success('Blog Added')
+            router.push("/browse-blog")
           }else{
             toast.error('some error occured')
           }
