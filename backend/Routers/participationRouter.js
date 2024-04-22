@@ -48,7 +48,17 @@ router.get('/getbyid/:id', (req, res) => {
 });
 
 router.get('/getbycompetition/:id', (req, res) => {
-    Model.find({competition : req.params.id}).populate('user').populate('blog')
+    Model.find({ competition: req.params.id }).populate('user').populate('blog')
+        .then((result) => {
+            res.status(200).json(result);
+        }).catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.get('/check-participation/:id', verifyToken, (req, res) => {
+    Model.findOne({ competition: req.params.id, user: req.user._id })
         .then((result) => {
             res.status(200).json(result);
         }).catch((err) => {
@@ -58,7 +68,7 @@ router.get('/getbycompetition/:id', (req, res) => {
 });
 
 router.get('/getbyuser', verifyToken, (req, res) => {
-    Model.findOne({user : req.user._id})
+    Model.findOne({ user: req.user._id })
         .then((result) => {
             res.status(200).json(result);
         }).catch((err) => {

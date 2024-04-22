@@ -53,7 +53,11 @@ const CompetitionDetails = () => {
   }, [])
 
   const attemptParticipate = () => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/participation/getbyuser`, {
+    if(selBlog === null) {
+      toast.error('Please select a blog to participate in competition');
+      return;
+    }
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/participation/check-participation/${id}`, {
       headers: {
         'x-auth-token': currentUser.token
       }
@@ -114,7 +118,7 @@ const CompetitionDetails = () => {
                 <button onClick={attemptParticipate}>Participate in Compeition</button>
               )
           }
-
+  {/* <button onClick={attemptParticipate}>Participate in Compeition</button> */}
         </div>
       </>
     } else {

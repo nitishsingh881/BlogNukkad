@@ -34,19 +34,18 @@ const Login = () => {
 
       });
       console.log(res.status)
-      
+
       if (res.status === 200) {
         toast.success("Login successfull")
-        
+
         const data = await res.json();
         console.log(data);
         sessionStorage.setItem('user', JSON.stringify(data));
         action.resetForm();
         router.push('/user/create-blog');
       }
-      else if (res.status === 400
-      ) {
-        toast.error("Error")
+      else if (res.status === 401) {
+        toast.error("Invalid Credentials")
       }
 
     },
