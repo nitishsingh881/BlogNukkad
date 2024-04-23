@@ -1,12 +1,13 @@
 import React from 'react'
 import Navbar from './(main)/navbar'
+import Link from 'next/link'
 
 const Home = () => {
   return (
     <>
       <>
         {/*Nav*/}
-      <Navbar />
+        <Navbar />
         {/*Hero*/}
         <div className="pt-24">
           <div className="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
@@ -20,9 +21,9 @@ const Home = () => {
                 Blog Nukkad provides a vibrant community of bloggers, readers, and influencers, offering opportunities for networking, collaboration, and engagement.
 
               </p>
-              <button className="mx-auto lg:mx-0 hover:underline bg-white text-gray-900 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                Subscribe
-              </button>
+              <Link href="/browse-competition" className="mx-auto lg:mx-0 hover:underline bg-white text-gray-900 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                Get Started
+              </Link>
             </div>
             {/*Right Col*/}
             <div className="w-full md:w-3/5 py-6 text-center">

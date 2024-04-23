@@ -1,8 +1,53 @@
 'use client'
+import useAppContext from '@/context/AppContext';
 import Link from 'next/link';
 import React from 'react'
 
 const Navbar = () => {
+
+  const { loggedIn, currentUser } = useAppContext();
+
+  const displayUserOptions = () => {
+    if (loggedIn) {
+      return (
+        <div className="flex-shrink-0 group block">
+          <div className="flex items-center">
+            <img
+              className="inline-block flex-shrink-0 size-[50px] rounded-full"
+              src={`${process.env.NEXT_PUBLIC_API_URL}/${currentUser.avatar}`}
+              alt="Image Description"
+            />
+            <div className="ms-3">
+              <h3 className="font-semibold text-gray-800">
+                {currentUser.name}
+              </h3>
+              <p className="text-sm font-medium text-gray-400">
+                {currentUser.email}
+              </p>
+            </div>
+          </div>
+        </div>
+
+      )
+    } else {
+      return <>
+        <Link
+          href="/login"
+          className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#f63bb5] bg-[#924df9] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]">
+          Login
+        </Link>
+
+
+        <Link
+          href="/signup"
+          button className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#e945f8] bg-[#421fa1] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff] ml-4">
+
+          Sign up
+        </Link>
+      </>
+    }
+  }
+
   return (
     <div>
       <>
@@ -20,19 +65,9 @@ const Navbar = () => {
             </div>
             <div className="flex ml-auto lg:order-1">
 
-              <Link
-                href="/login"
-                 className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#f63bb5] bg-[#924df9] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]">
-                Login
-              </Link>
-
-
-              <Link
-                href="/signup"
-                button className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#e945f8] bg-[#421fa1] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff] ml-4">
-
-                Sign up
-              </Link>
+              {
+                displayUserOptions()
+              }
               <button className="lg:hidden ml-7">
                 <svg
                   className="w-7 h-7"
@@ -59,7 +94,7 @@ const Navbar = () => {
               </li>
               <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
 
-                
+
               </li>
               <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
                 <a
