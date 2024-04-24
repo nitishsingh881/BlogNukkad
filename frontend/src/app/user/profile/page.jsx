@@ -99,7 +99,7 @@ const Profile = () => {
                 Message
               </button>{" "}
             </div>
-          </div>{" "}
+          </div>{" "} 
           <div className="mt-20 text-center border-b pb-12">
             {" "}
             <label
