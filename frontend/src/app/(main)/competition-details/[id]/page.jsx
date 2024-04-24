@@ -1,169 +1,160 @@
 'use client';
 import { useParams } from 'next/navigation'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import toast from 'react-hot-toast';
 
 const CompetitionDetails = () => {
 
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
+  const [competitionData, setCompetitionData] = useState(null);
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+  const [selBlog, setSelBlog] = useState(null);
+  const [blogList, setBlogList] = useState([]);
+
+  const fetchUserBlogs = () => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/getbyuser`, {
+      headers: {
+        'x-auth-token': currentUser.token
+      }
+    })
+      .then((response) => response.json())
+      .then(data => {
+        console.log(data);
+        setBlogList(data);
+        if (data === null) {
+          toast.error('You have not written any blogs yet');
+        } else {
+          return data;
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   const fetchCompetitionData = () => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/competition/getbyid/${id}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        setCompetitionData(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
+  useEffect(() => {
+    fetchCompetitionData();
+    fetchUserBlogs();
+  }, [])
+
+  const attemptParticipate = () => {
+    if(selBlog === null) {
+      toast.error('Please select a blog to participate in competition');
+      return;
+    }
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/participation/check-participation/${id}`, {
+      headers: {
+        'x-auth-token': currentUser.token
+      }
+    })
+      .then((response) => response.json())
+      .then(data => {
+        console.log(data);
+        if (data === null) {
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/participation/add`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'x-auth-token': currentUser.token
+            },
+            body: JSON.stringify({
+              blog: selBlog,
+              competition: id
+            })
+          })
+            .then((response) => {
+              if (response.status === 200) {
+                toast.success('Participation Successful');
+                return response.json();
+              }
+            })
+            .then(data => {
+              console.log(data);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        } else {
+          toast.error('You have already participated in this competition');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  const displayCompetition = () => {
+    if (competitionData !== null) {
+      return <>
+      <div className="h-96">
+        <header className=' bg-white'>
+          <h1 className='text-3xl text-purple-800 font-semibold mb-12 text-center'>{competitionData.topic}</h1>
+        </header>
+        <div>
+
+          <select onChange={e => setSelBlog(e.target.value)} className='mx-auto text-center mb-12 block my-3'>
+            <option  value="">Select Blog</option>
+            {blogList.map((blog) => {
+              return <option value={blog._id}>{blog.title}</option>
+            })}
+          </select>
+          {
+            checkCompetionExpired() ? displayWinner() :
+              (
+                <button onClick={attemptParticipate}>Participate in Compeition</button>
+              )
+          }
+  {/* <button onClick={attemptParticipate}>Participate in Compeition</button> */}
+        </div>
+        </div>
+      </>
+    } else {
+      return <p>Competition Loading...</p>
+    }
+  }
+
+  const checkCompetionExpired = () => {
+    const currentDate = new Date();
+    const endDate = new Date(competitionData.endDate);
+    if (currentDate > endDate) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  const displayWinner = () => {
+
+    return <div>
+      <h3 className='text-red-800 text-center text-2xl font-semibold animate-bounce'>Competition Over</h3>
+      {
+        competitionData.winner ? <p className='text-center text-lg my-3 '>Winner: {competitionData.winner.name}</p> : <p className='text-center text-lg my-3 '>Result not declared Yet</p>
+      }
+    </div>
   }
 
   return (
-    <div>
-      <>
-        {/* Card Blog */}
-        <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-          {/* Title */}
-          <div className="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
-            <h2 className="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white">
-              The Blog
-            </h2>
-            <p className="mt-1 text-gray-600 dark:text-neutral-400">
-              See how game-changing companies are making the most of every engagement
-              with Preline.
-            </p>
-          </div>
-          {/* End Title */}
-          {/* Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Card */}
-            <a
-              className="group flex flex-col h-full border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-300 rounded-xl p-5 dark:border-neutral-700 dark:hover:border-transparent dark:hover:shadow-black/40"
-              href="#"
-            >
-              <div className="aspect-w-16 aspect-h-11">
-                <img
-                  className="w-full object-cover rounded-xl"
-                  src="https://images.unsplash.com/photo-1633114128174-2f8aa49759b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-                  alt="Image Description"
-                />
-              </div>
-              <div className="my-6">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-neutral-300 dark:group-hover:text-white">
-                  Announcing a free plan for small teams
-                </h3>
-                <p className="mt-5 text-gray-600 dark:text-neutral-400">
-                  At Wake, our mission has always been focused on bringing openness.
-                </p>
-              </div>
-              <div className="mt-auto flex items-center gap-x-3">
-                <img
-                  className="size-8 rounded-full"
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
-                  alt="Image Description"
-                />
-                <div>
-                  <h5 className="text-sm text-gray-800 dark:text-neutral-200">
-                    By Lauren Waller
-                  </h5>
-                </div>
-              </div>
-            </a>
-            {/* End Card */}
-            {/* Card */}
-            <a
-              className="group flex flex-col h-full border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-300 rounded-xl p-5 dark:border-neutral-700 dark:hover:border-transparent dark:hover:shadow-black/40"
-              href="#"
-            >
-              <div className="aspect-w-16 aspect-h-11">
-                <img
-                  className="w-full object-cover rounded-xl"
-                  src="https://images.unsplash.com/photo-1562851529-c370841f6536?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80"
-                  alt="Image Description"
-                />
-              </div>
-              <div className="my-6">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-neutral-300 dark:group-hover:text-white">
-                  How Google Assistant now helps you record stories for kids
-                </h3>
-                <p className="mt-5 text-gray-600 dark:text-neutral-400">
-                  Google is constantly updating its consumer AI, Google Assistant,
-                  with new features.
-                </p>
-              </div>
-              <div className="mt-auto flex items-center gap-x-3">
-                <img
-                  className="size-8 rounded-full"
-                  src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
-                  alt="Image Description"
-                />
-                <div>
-                  <h5 className="text-sm text-gray-800 dark:text-neutral-200">
-                    By Aaron Larsson
-                  </h5>
-                </div>
-              </div>
-            </a>
-            {/* End Card */}
-            {/* Card */}
-            <a
-              className="group flex flex-col h-full border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-300 rounded-xl p-5 dark:border-neutral-700 dark:hover:border-transparent dark:hover:shadow-black/40"
-              href="#"
-            >
-              <div className="aspect-w-16 aspect-h-11">
-                <img
-                  className="w-full object-cover rounded-xl"
-                  src="https://images.unsplash.com/photo-1521321205814-9d673c65c167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3548&q=80"
-                  alt="Image Description"
-                />
-              </div>
-              <div className="my-6">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-neutral-300 dark:group-hover:text-white">
-                  Front accounts - let's work together
-                </h3>
-                <p className="mt-5 text-gray-600 dark:text-neutral-400">
-                  Are you an accountant? Are you a company formation advisor?
-                </p>
-              </div>
-              <div className="mt-auto flex items-center gap-x-3">
-                <img
-                  className="size-8 rounded-full"
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
-                  alt="Image Description"
-                />
-                <div>
-                  <h5 className="text-sm text-gray-800 dark:text-neutral-200">
-                    By Lauren Waller
-                  </h5>
-                </div>
-              </div>
-            </a>
-            {/* End Card */}
-          </div>
-          {/* End Grid */}
-          {/* Card */}
-          <div className="mt-12 text-center">
-            <a
-              className="py-3 px-4 inline-flex items-center gap-x-1 text-sm font-medium rounded-full border border-gray-200 bg-white text-blue-600 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-blue-500 dark:hover:bg-neutral-800"
-              href="#"
-            >
-              Read more
-              <svg
-                className="flex-shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m9 18 6-6-6-6" />
-              </svg>
-            </a>
-          </div>
-          {/* End Card */}
-        </div>
-        {/* End Card Blog */}
-      </>
-
+    <div className='pt-40'>
+      {displayCompetition()}
     </div>
+    
   )
+  
 }
 
 export default CompetitionDetails

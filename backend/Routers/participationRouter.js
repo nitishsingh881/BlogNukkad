@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Model = require('../Models/blogModel');
+const Model = require('../Models/participateModel');
 const verifyToken = require('./verifyToken');
 
 router.post('/add', verifyToken, (req, res) => {
@@ -47,8 +47,28 @@ router.get('/getbyid/:id', (req, res) => {
         });
 });
 
+router.get('/getbycompetition/:id', (req, res) => {
+    Model.find({ competition: req.params.id }).populate('user').populate('blog')
+        .then((result) => {
+            res.status(200).json(result);
+        }).catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.get('/check-participation/:id', verifyToken, (req, res) => {
+    Model.findOne({ competition: req.params.id, user: req.user._id })
+        .then((result) => {
+            res.status(200).json(result);
+        }).catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 router.get('/getbyuser', verifyToken, (req, res) => {
-    Model.find({ user: req.user._id })
+    Model.findOne({ user: req.user._id })
         .then((result) => {
             res.status(200).json(result);
         }).catch((err) => {

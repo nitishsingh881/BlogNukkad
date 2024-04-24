@@ -1,95 +1,13 @@
 import React from 'react'
+import Navbar from './(main)/navbar'
+import Link from 'next/link'
 
 const Home = () => {
   return (
     <>
       <>
         {/*Nav*/}
-        <nav id="header" className="fixed w-full z-30 top-0 bg-white text-white">
-          <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
-            <div className="pl-4 flex items-center">
-              <a
-                className="toggleColour text text-blue-700 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-                href="#"
-              >
-                {/*Icon from: http://www.potlabicons.com/ */}
-
-                BLOG NUKKAD
-              </a>
-            </div>
-            <div className="flex ml-auto lg:order-1">
-           
-              <button className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#f63bb5] bg-[#924df9] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]">
-                Login
-              </button>
-              
-              <button className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#e945f8] bg-[#421fa1] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff] ml-4">
-          
-                Sign up
-              </button>
-              <button className="lg:hidden ml-7">
-                <svg
-                  className="w-7 h-7"
-                  fill="#000"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </button>
-            </div>
-            <ul className="flex lg:ml-12 lg:space-x-4 max-lg:space-y-2 max-lg:block max-lg:w-full">
-              <li className="max-lg:border-b max-lg:bg-[#007bff] max-lg:py-2 px-3 max-lg:rounded">
-                <a
-                  href="javascript:void(0)"
-                  className="lg:hover:text-[#007bff] text-[#007bff] max-lg:text-white block font-semibold text-[25px]"
-                >
-                  Home
-                </a>
-              </li>
-              <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
-
-                <a
-                  href="javascript:void(0)"
-                  className="lg:hover:text-[#007bff] text-black block font-semibold text-[25px]"
-                >
-                  Feature
-                </a>
-              </li>
-              <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
-                <a
-                  href="javascript:void(0)"
-                  className="lg:hover:text-[#007bff] text-black block font-semibold text-[25px]"
-                >
-                  Blog
-                </a>
-              </li>
-              <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
-                <a
-                  href="/about"
-                  className="lg:hover:text-[#007bff] text-black block font-semibold text-[25px]"
-                >
-                  About
-                </a>
-              </li>
-              <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
-                <a
-                  href="/contact"
-                  className="lg:hover:text-[#007bff] text-black block font-semibold text-[25px]"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-
-
-          <hr className="border-b border-gray-100 opacity-25 my-0 py-0" />
-        </nav>
+        <Navbar />
         {/*Hero*/}
         <div className="pt-24">
           <div className="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
@@ -103,9 +21,9 @@ const Home = () => {
                 Blog Nukkad provides a vibrant community of bloggers, readers, and influencers, offering opportunities for networking, collaboration, and engagement.
 
               </p>
-              <button className="mx-auto lg:mx-0 hover:underline bg-white text-gray-900 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                Subscribe
-              </button>
+              <Link href="/browse-competition" className="mx-auto lg:mx-0 hover:underline bg-white text-gray-900 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                Get Started
+              </Link>
             </div>
             {/*Right Col*/}
             <div className="w-full md:w-3/5 py-6 text-center">
@@ -370,15 +288,14 @@ const Home = () => {
                   href="#"
                   className="flex flex-wrap no-underline hover:no-underline"
                 >
-                  <p className="w-full text-gray-600 text-xs md:text-sm px-6">
-                    xGETTING STARTED
+                  <p className="w-full text-gray-600 my-2 text-xs md:text-sm px-6">
+                    14/03/2024
                   </p>
-                  <div className="w-full font-bold text-xl text-gray-800 px-6">
-                    Lorem ipsum dolor sit amet.
+                  <div className="w-full font-bold text-xl mb-3 text-gray-800 px-6">
+                    FUTURE OF WORK
                   </div>
                   <p className="text-gray-800 text-base px-6 mb-5">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                    at ipsum eu nunc commodo posuere et sit amet ligula.
+                    The way we work is undergoing a dramatic transformation. Automation, remote work, and the gig economy are reshaping the landscape.
                   </p>
                 </a>
               </div>
@@ -396,15 +313,14 @@ const Home = () => {
                   href="#"
                   className="flex flex-wrap no-underline hover:no-underline"
                 >
-                  <p className="w-full text-gray-600 text-xs md:text-sm px-6">
-                    xGETTING STARTED
+                  <p className="w-full text-gray-600 text-xs md:text-sm px-6 my-2">16/03/2024
                   </p>
-                  <div className="w-full font-bold text-xl text-gray-800 px-6">
-                    Lorem ipsum dolor sit amet.
+                  <div className="w-full font-bold mb-3 text-xl text-gray-800 px-6">
+                    THE POWER OF STORYTELLING
+
                   </div>
                   <p className="text-gray-800 text-base px-6 mb-5">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                    at ipsum eu nunc commodo posuere et sit amet ligula.
+                    Stories tap into our emotions. They make us laugh, cry, feel suspense, and root for characters. This emotional engagement makes the information in the story more memorable and impactful.
                   </p>
                 </a>
               </div>
@@ -422,15 +338,15 @@ const Home = () => {
                   href="#"
                   className="flex flex-wrap no-underline hover:no-underline"
                 >
-                  <p className="w-full text-gray-600 text-xs md:text-sm px-6">
-                    xGETTING STARTED
+                  <p className="w-full text-gray-600 mb-2 mt-2 text-xs md:text-sm px-6">
+                    12/03/2024
                   </p>
-                  <div className="w-full font-bold text-xl text-gray-800 px-6">
-                    Lorem ipsum dolor sit amet.
+                  <div className="w-full font-bold text-xl mb-3 text-gray-800 px-6">
+                    THE ETHICS OF DATA SCIENCE
+
                   </div>
                   <p className="text-gray-800 text-base px-6 mb-5">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                    at ipsum eu nunc commodo posuere et sit amet ligula.
+                    Data science unlocks incredible potential, but with great power comes great responsibility. The ethics of data science ensure we use this power for good.
                   </p>
                 </a>
               </div>

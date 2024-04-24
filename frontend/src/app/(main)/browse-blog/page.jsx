@@ -20,6 +20,14 @@ const BrowseBlog = () => {
         fetchBlogData();
     }, []);
 
+    const sliceString = (str, maxLength) => {
+        if (str.length > maxLength) {
+            return str.slice(0, maxLength) + '...';
+        } else {
+            return str;
+        }
+    }
+
     const displayBlogs = () => {
         if (blogList.length === 0) {
             return <h1>No Blogs Available</h1>
@@ -32,8 +40,8 @@ const BrowseBlog = () => {
                     <div className="aspect-w-16 aspect-h-11">
                         <img
                             className="w-full object-cover rounded-xl"
-                            src="https://images.unsplash.com/photo-1633114128174-2f8aa49759b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-                            alt="Image Description"
+                            src={`${process.env.NEXT_PUBLIC_API_URL}/${blog.cover}`}
+                            alt={blog.title}
                         />
                     </div>
                     <div className="my-6">
@@ -41,18 +49,18 @@ const BrowseBlog = () => {
                             {blog.title}
                         </h3>
                         <p className="mt-5 text-gray-600 dark:text-neutral-400">
-                            At Wake, our mission has always been focused on bringing openness.
+                                {sliceString(blog.description, 90)}
                         </p>
                     </div>
                     <div className="mt-auto flex items-center gap-x-3">
                         <img
                             className="size-8 rounded-full"
-                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
-                            alt="Image Description"
+                            src={`${process.env.NEXT_PUBLIC_API_URL}/${blog.user.avatar}`}
+                            alt={blog.user.name}
                         />
                         <div>
                             <h5 className="text-sm text-gray-800 dark:text-neutral-200">
-                                By Lauren Waller
+                                By {blog.user.name}
                             </h5>
                         </div>
                     </div>
@@ -68,7 +76,7 @@ const BrowseBlog = () => {
                 <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
                     {/* Title */}
                     <div className="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
-                        <h2 className="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white">
+                        <h2 className="text-2xl font-bold md:text-4xl md:leading-tight mt-6 dark:text-white">
                             The Blog
                         </h2>
                         <p className="mt-1 text-gray-600 dark:text-neutral-400">

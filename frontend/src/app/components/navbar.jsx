@@ -27,12 +27,12 @@ const Navbar = () => {
               </Link>
 
 
-              <a
+              <Link
                 href="/signup"
                 button className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#e945f8] bg-[#421fa1] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff] ml-4">
 
                 Sign up
-              </a>
+              </Link>
               <button className="lg:hidden ml-7">
                 <svg
                   className="w-7 h-7"
@@ -51,21 +51,13 @@ const Navbar = () => {
             <ul className="flex lg:ml-12 lg:space-x-4 max-lg:space-y-2 max-lg:block max-lg:w-full">
               <li className="max-lg:border-b max-lg:bg-[#007bff] max-lg:py-2 px-3 max-lg:rounded">
                 <a
-                  href="javascript:void(0)"
+                  href="/"
                   className="lg:hover:text-[#007bff] text-[#007bff] max-lg:text-white block font-semibold text-[25px]"
                 >
                   Home
                 </a>
               </li>
-              <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
-
-                <a
-                  href="javascript:void(0)"
-                  className="lg:hover:text-[#007bff] text-black block font-semibold text-[25px]"
-                >
-                  Feature
-                </a>
-              </li>
+             
               <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
                 <a
                   href="javascript:void(0)"

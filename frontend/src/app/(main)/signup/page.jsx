@@ -3,8 +3,10 @@ import React from 'react'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 const signup = () => {
+  const router = useRouter()
   const signupValidationSchema = Yup.object().shape({
     email: Yup.string().email('Email is invalid').required('Email is required'),
     name: Yup.string().required('Name is required'),
@@ -26,14 +28,6 @@ const signup = () => {
     },
     onSubmit: (values, { resetForm }) => {
 
-<<<<<<< HEAD
-      setTimeout(() => {
-        console.log(values);
-        resetForm();
-      }, 3000);
-    }, 
-    validationSchema: signupValidationSchema
-=======
       fetch('http://localhost:5000/user/add', {
         method: 'POST',
         headers: {
@@ -44,6 +38,7 @@ const signup = () => {
         .then(response => {
           if (response.status === 200) {
             toast.success('User added successfully');
+            router.push("/login")
             return response.json();
           }
         })
@@ -56,7 +51,6 @@ const signup = () => {
         });
     },
     // validationSchema: signupValidationSchema
->>>>>>> 7227d4155068920a61bf78b1f0d68cc7e00d8b3a
   })
 
 
@@ -65,8 +59,8 @@ const signup = () => {
 
       <>
         {/* source:https://codepen.io/owaiswiz/pen/jOPvEPB */}
-        <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
-          <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+        <div className="min-h-screen bg-blue-900 text-gray-900 flex justify-center">
+          <div className="max-w-screen-xl m-0 sm:m-10 bg-blue shadow sm:rounded-lg flex justify-center flex-1">
             <div className="lg:w-1/2 xl:w-6/10 p-6 sm:p-1">
 
               <div className="mt-12 flex flex-col items-center">
@@ -96,10 +90,8 @@ const signup = () => {
                       <span className="ml-4">Sign In with Google</span>
                     </button>
                   </div>
-                  <div className="my-12 border-b text-center">
-                    <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
-                      Or sign In with Cartesian E-mail
-                    </div>
+                  <div className="my-6 border-b text-center">
+                   
                   </div>
 
                   <form onSubmit={signupForm.handleSubmit}>
@@ -180,7 +172,7 @@ const signup = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-1 bg-green-100 text-center hidden lg:flex">
+            <div className="flex-1 bg-sky-800 text-center hidden lg:flex">
               <div
                 className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
                 style={{

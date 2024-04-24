@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast'
+import useAppContext from '@/context/AppContext';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
@@ -14,6 +15,8 @@ const LoginSchema = Yup.object().shape({
 })
 const Login = () => {
   const router = useRouter();
+
+  const { setLoggedIn, setCurrentUser } = useAppContext();
 
   //step1 : formik initialization
   const loginForm = useFormik({
@@ -34,19 +37,20 @@ const Login = () => {
 
       });
       console.log(res.status)
-      
+
       if (res.status === 200) {
         toast.success("Login successfull")
-        
+
         const data = await res.json();
         console.log(data);
         sessionStorage.setItem('user', JSON.stringify(data));
+        setLoggedIn(true);
+        setCurrentUser(data);
         action.resetForm();
         router.push('/user/create-blog');
       }
-      else if (res.status === 400
-      ) {
-        toast.error("Error")
+      else if (res.status === 401) {
+        toast.error("Invalid Credentials")
       }
 
     },
@@ -69,7 +73,7 @@ const Login = () => {
           href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
           rel="stylesheet"
         />
-        <div className="h-screen w-screen flex justify-center items-center dark:bg-gray-900">
+        <div className="h-screen w-screen mt-5 flex justify-center items-center dark:bg-gray-900">
           <div className="grid gap-8">
             <div
               id="back-div"
