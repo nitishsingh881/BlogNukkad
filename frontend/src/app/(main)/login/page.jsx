@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast'
+import useAppContext from '@/context/AppContext';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
@@ -14,6 +15,8 @@ const LoginSchema = Yup.object().shape({
 })
 const Login = () => {
   const router = useRouter();
+
+  const { setLoggedIn, setCurrentUser } = useAppContext();
 
   //step1 : formik initialization
   const loginForm = useFormik({
@@ -41,6 +44,8 @@ const Login = () => {
         const data = await res.json();
         console.log(data);
         sessionStorage.setItem('user', JSON.stringify(data));
+        setLoggedIn(true);
+        setCurrentUser(data);
         action.resetForm();
         router.push('/user/create-blog');
       }
