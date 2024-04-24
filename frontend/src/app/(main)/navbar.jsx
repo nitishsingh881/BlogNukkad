@@ -33,14 +33,14 @@ const Navbar = () => {
       return <>
         <Link
           href="/login"
-          className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#f63bb5] bg-[#924df9] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]">
+          className="px-4 py-2 text-sm rounded-full font-bold text-black border-2 border-[#100d0e] bg-[#faf9fd] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#080608]">
           Login
         </Link>
 
 
         <Link
           href="/signup"
-          button className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#e945f8] bg-[#421fa1] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff] ml-4">
+          button className="px-4 py-2 text-sm rounded-full font-bold text-black border-2 border-[#100d0e] bg-[#faf9fd] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#080608] ml-4">
 
           Sign up
         </Link>
@@ -51,11 +51,11 @@ const Navbar = () => {
   return (
     <div>
       <>
-        <nav id="header" className="fixed w-full z-30 top-0 bg-white text-white">
+        <nav id="header" className="fixed w-full z-30 top-0  bg-blue-500 text-black">
           <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
             <div className="pl-4 flex items-center">
               <a
-                className="toggleColour text text-blue-700 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+                className="toggleColour text text-blue-00 no-underline hover:no-underline font-bold text-2xl lg:text-3xl"
                 href="#"
               >
                 {/*Icon from: http://www.potlabicons.com/ */}
@@ -84,10 +84,10 @@ const Navbar = () => {
               </button>
             </div>
             <ul className="flex lg:ml-12 lg:space-x-4 max-lg:space-y-2 max-lg:block max-lg:w-full">
-              <li className="max-lg:border-b max-lg:bg-[#007bff] max-lg:py-2 px-3 max-lg:rounded">
+              <li className="max-lg:border-b max-lg:bg-[#007bff] max-lg:py-2 px-4 max-lg:rounded">
                 <a
                   href="/"
-                  className="lg:hover:text-[#007bff] text-[#007bff] max-lg:text-white block font-semibold text-[25px]"
+                  className="lg:hover:text-[#fcf8fa] text-[#05080a] max-lg:text-white block font-semibold text-[25px]"
                 >
                   Home
                 </a>
@@ -99,7 +99,7 @@ const Navbar = () => {
               <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
                 <a
                   href="/browse-blog"
-                  className="lg:hover:text-[#007bff] text-black block font-semibold text-[25px]"
+                  className="lg:hover:text-[#f8fafb] text-black block font-semibold text-[25px]"
                 >
                   Blog
                 </a>
@@ -107,7 +107,7 @@ const Navbar = () => {
               <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
                 <a
                   href="/browse-competition"
-                  className="lg:hover:text-[#007bff] text-black block font-semibold text-[25px]"
+                  className="lg:hover:text-[#f6f9fc] text-black block font-semibold text-[25px]"
                 >
                   Competition
                 </a>
@@ -115,7 +115,7 @@ const Navbar = () => {
               <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
                 <a
                   href="/about"
-                  className="lg:hover:text-[#007bff] text-black block font-semibold text-[25px]"
+                  className="lg:hover:text-[#f8fafc] text-black block font-semibold text-[25px]"
                 >
                   About
                 </a>
@@ -123,7 +123,7 @@ const Navbar = () => {
               <li className="max-lg:border-b max-lg:py-2 px-3 max-lg:rounded">
                 <a
                   href="/contact"
-                  className="lg:hover:text-[#007bff] text-black block font-semibold text-[25px]"
+                  className="lg:hover:text-[#f6fafd] text-black block font-semibold text-[25px]"
                 >
                   Contact
                 </a>
