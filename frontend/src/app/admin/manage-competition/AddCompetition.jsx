@@ -2,7 +2,7 @@
 import { useFormik } from 'formik'
 import React from 'react'
 
-const AddCompetition = () => {
+const AddCompetition = ({close}) => {
 
     const competitionForm = useFormik({
         initialValues: {
@@ -25,6 +25,9 @@ const AddCompetition = () => {
             })
             .then((response) => {
                 console.log(response.status);
+                if(response.status === 200){
+                    close();
+                }
             }).catch((err) => {
                 console.log(err);
             });
@@ -50,6 +53,7 @@ const AddCompetition = () => {
                             </h3>
                             <button
                                 type="button"
+                                onClick={close}
                                 className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
                                 data-modal-toggle="updateProductModal"
                             >

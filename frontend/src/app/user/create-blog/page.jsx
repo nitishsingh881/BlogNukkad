@@ -80,9 +80,10 @@ const CreateBlog = () => {
                   Title
                 </label>
                 <input
-                  type="String"
+                  type="text"
                   name="title"
-
+                  onChange={blogForm.handleChange}
+                  value={blogForm.values.title}
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                   placeholder=""
                   required=""
@@ -96,7 +97,7 @@ const CreateBlog = () => {
                   Cover
                 </label>
                 <input
-                  type="string"
+                  type="file"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                   placeholder=""
                   required=""
@@ -111,7 +112,9 @@ const CreateBlog = () => {
                 </label>
                 <input
                   type="text"
-
+                  name="category"
+                  onChange={blogForm.handleChange}
+                  value={blogForm.values.category}
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                   placeholder=""
                   required=""
@@ -125,24 +128,10 @@ const CreateBlog = () => {
                   Tags
                 </label>
                 <input
-                  type="string"
-
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
-                  placeholder=""
-                  required=""
-                />
-              </div>
-
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="brand"
-                  className="text-sm font-medium text-gray-900 block mb-2"
-                >
-                  Competition
-                </label>
-                <input
-                  type="string"
-
+                  type="text"
+                  name="tags"
+                  onChange={blogForm.handleChange}
+                  value={blogForm.values.tags}
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                   placeholder=""
                   required=""
@@ -155,13 +144,12 @@ const CreateBlog = () => {
                 >
                   Description
                 </label>
-                <input
-                  type="string"
-
+                <textarea
+                  name="description"
+                  onChange={blogForm.handleChange}
+                  value={blogForm.values.description}
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
-                  Description=""
-                  required=""
-                />
+                ></textarea>
               </div>
 
 
@@ -180,8 +168,6 @@ const CreateBlog = () => {
                 </div>
               </div>
             </div>
-          </form>
-        </div>
         <div className="p-6 border-t border-gray-200 rounded-b">
           <button
             className="text-white bg-cyan-600 hover:bg-cyan-300 focus:ring-4 focus:ring-cyan-8900 font-medium rounded-lg text-sm px-10 py-3 text-center"
@@ -189,6 +175,8 @@ const CreateBlog = () => {
           >
             Save all
           </button>
+        </div>
+          </form>
         </div>
       </div>
     </div>

@@ -1,11 +1,12 @@
 'use client'
+import Link from 'next/link';
 import React from 'react'
 
 const Navbar = () => {
   return (
     <div>
       <>
-      <nav id="header" className="fixed w-full z-30 top-0 bg-white text-white">
+        <nav id="header" className="fixed w-full z-30 top-0 bg-white text-white">
           <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
             <div className="pl-4 flex items-center">
               <a
@@ -18,18 +19,18 @@ const Navbar = () => {
               </a>
             </div>
             <div className="flex ml-auto lg:order-1">
-           
+
               <Link
-                  href="/login"
-                  button className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#f63bb5] bg-[#924df9] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]">
+                href="/login"
+                 className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#f63bb5] bg-[#924df9] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]">
                 Login
               </Link>
-              
-              
+
+
               <a
-                  href="/signup"
-                  button className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#e945f8] bg-[#421fa1] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff] ml-4">
-          
+                href="/signup"
+                button className="px-4 py-2 text-sm rounded-full font-bold text-white border-2 border-[#e945f8] bg-[#421fa1] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff] ml-4">
+
                 Sign up
               </a>
               <button className="lg:hidden ml-7">
