@@ -10,23 +10,23 @@ const Home = () => {
         <Navbar />
         {/*Hero*/}
         <div className="pt-24">
-          <div className="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+          <div className=" container px-3 flex flex-col md:flex-row items-center">
             {/*Left Col*/}
-            <div className="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+            <div className=" flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
 
               <h1 className="my-4 text-5xl font-bold leading-tight">
-                Create a unique and beautiful blog easily.!
+                Create a unique and Beautiful blog easily.!
               </h1>
               <p className="leading-normal text-2xl mb-8">
                 Blog Nukkad provides a vibrant community of bloggers, readers, and influencers, offering opportunities for networking, collaboration, and engagement.
 
               </p>
-              <Link href="/browse-competition" className="mx-auto lg:mx-0 hover:underline bg-white text-gray-900 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+              <Link href="/browse-competition" className="mx-auto lg:mx-0 hover:underline bg-blue-400 text-gray-900 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                 Get Started
               </Link>
             </div>
             {/*Right Col*/}
-            <div className="w-full md:w-3/5 py-6 text-center">
+            <div className="w-full md:w-4/6 py-6 text-center">
               <img className="w-full md:w-4/5 z-50" src="hero.png" />
             </div>
           </div>
@@ -68,18 +68,18 @@ const Home = () => {
             </g>
           </svg>
         </div>
-        <section className="bg-white border-b py-8">
+        <section className="  bg-white border-b py-8">
           <div className="container max-w-5xl mx-auto m-8">
 
             <div className="w-full mb-4">
               <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t" />
             </div>
             <div className="flex flex-wrap">
-              <div className="w-5/6 sm:w-1/2 p-6">
+              <div className="w-4/6 sm:w-1/2 p-6">
                 <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">
                   Choose the Right Platform
                 </h3>
-                <p className="text-gray-600 mb-8">
+                <p className="text-black-900 mb-6">
                   Select a blogging platform that suits your needs and preferences.
                   Create a beautiful blog that fits your style.
                   Select an Eye-Catching Theme or design something new
@@ -338,14 +338,14 @@ const Home = () => {
                   href="#"
                   className="flex flex-wrap no-underline hover:no-underline"
                 >
-                  <p className="w-full text-gray-600 mb-2 mt-2 text-xs md:text-sm px-6">
+                  <p className="w-full text-black mb-2 mt-2 text-xs md:text-sm px-6">
                     12/03/2024
                   </p>
                   <div className="w-full font-bold text-xl mb-3 text-gray-800 px-6">
                     THE ETHICS OF DATA SCIENCE
 
                   </div>
-                  <p className="text-gray-800 text-base px-6 mb-5">
+                  <p className="text-black text-base px-6 mb-5">
                     Data science unlocks incredible potential, but with great power comes great responsibility. The ethics of data science ensure we use this power for good.
                   </p>
                 </a>
@@ -393,7 +393,7 @@ const Home = () => {
             </g>
           </g>
         </svg>
-        <section className="container mx-auto text-center py-6 mb-12">
+        <section className=" container mx-auto text-center py-6 mb-12">
           <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
             Call to Action
           </h1>
