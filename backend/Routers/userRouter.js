@@ -80,6 +80,17 @@ router.post('/authenticate', (req, res) => {
             console.log(err);
             res.status(500).json(err)
         })
-})
+});
 
+router.get('/getbyemail/:email', (req,res) => {
+    Model.findOne({ email: req.params.email})
+    .then((result) => {
+        if(result) res.status(200).json(result)
+        else res.status(404).json({message:'User not found'})
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json(err)
+    });
+    console.log(req.body);
+})
 module.exports = router;

@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const signup = () => {
   const router = useRouter()
@@ -59,7 +60,7 @@ const signup = () => {
 
       <>
         {/* source:https://codepen.io/owaiswiz/pen/jOPvEPB */}
-        <div className="min-h-screen bg-blue-900 text-gray-900 flex justify-center">
+        <div className="min-h-screen bg-sky-800 text-gray-900 flex justify-center">
           <div className="max-w-screen-xl m-0 sm:m-10 bg-blue shadow sm:rounded-lg flex justify-center flex-1">
             <div className="lg:w-1/2 xl:w-6/10 p-6 sm:p-1">
 
@@ -150,6 +151,8 @@ const signup = () => {
                         value={signupForm.values.cpassword}
 
                       />
+                        <Link href="/reset-password">Reset Password</Link>
+
                       <button type="submit" className="mt-5 mb-5 tracking-wide font-semibold bg-green-400 text-white-500 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                         <svg
                           className="w-6 h-6 -ml-2"
@@ -172,16 +175,7 @@ const signup = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-1 bg-sky-800 text-center hidden lg:flex">
-              <div
-                className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
-                style={{
-                  backgroundImage:
-                    'url(" hero2.png")'
-
-                }}
-              ></div>
-            </div>
+            
           </div>
         </div>
       </>
