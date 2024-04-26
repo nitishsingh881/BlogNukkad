@@ -17,7 +17,7 @@ const ResetPassword = () => {
   const router = useRouter();
 
   const checkMailExists = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/getbymail/${emailRef.current.value}`
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/getbyemail/${emailRef.current.value}`
     );
     console.log(res.status);
     const data = await res.json();
@@ -28,7 +28,7 @@ const ResetPassword = () => {
 
   const sendOTP = async () => {
     if (!(await checkMailExists())) {
-      enqueueSnackbar("Email not registered", { variant: "error" });
+      toast.error("Email not registered", { variant: "error" });
       return;
     }
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/util/sendotp`, {

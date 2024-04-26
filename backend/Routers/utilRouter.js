@@ -1,5 +1,8 @@
 const multer = require("multer");
+const express = require('express');
 const router = require("express").Router();
+const nodemailer = require('nodemailer');
+require('dotenv').config();
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -34,13 +37,13 @@ router.post("/uploadfile", myStorage.single("myfile"), (req, res) => {
 
 router.post('/sendotp', (req, res) => {
   const otp = generateOTP();
-  generatedOTP[req.body.email] = otp;
-  console.log(generatedOTP);
+  generateOTP[req.body.email] = otp;
+  console.log(generateOTP);
   transporter.sendMail({
       from : process.env.EMAIL_ID,
       to : req.body.email,
       subject : 'OTP for Password Reset',
-      html: <p> OTP for password reset is <b>${otp}</b> </p>
+      html: `<p> OTP for password reset is <b>${otp}</b> </p>`
   })
   .then((info) => {
       return res.status(201).json(
