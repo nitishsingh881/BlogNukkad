@@ -47,10 +47,10 @@ const ManageCompetition = () => {
     return competitionList.map((competition, index) => (
       <tr className="border-b  border-slate-200">
           <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-          <img src={'http://localhost:5000/' + competition.image} />
+          <img style={{height: 80}} src={'http://localhost:5000/' + competition.image} />
         </td>
         <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-          {competition.title}
+          {competition.topic}
         </td>
         <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
           {competition.description}
