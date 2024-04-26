@@ -47,7 +47,7 @@ const Login = () => {
         setLoggedIn(true);
         setCurrentUser(data);
         action.resetForm();
-        router.push('/user/create-blog');
+        router.push('/');
       }
       else if (res.status === 401) {
         toast.error("Invalid Credentials")

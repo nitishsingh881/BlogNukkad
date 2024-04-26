@@ -1,6 +1,7 @@
 import React from 'react'
-import Navbar from './(main)/navbar'
+// import Navbar from './(main)/navbar'
 import Link from 'next/link'
+import Navbar from './(main)/Navbar2'
 
 const Home = () => {
   return (
