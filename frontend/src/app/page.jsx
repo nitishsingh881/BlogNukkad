@@ -13,29 +13,36 @@ const Home = () => {
         <div className="pt-24 bg-">
           <div className=" container px-3 flex flex-col md:flex-row items-center">
             {/*Left Col*/}
-            <div className=" flex flex-col w-full md:w-4/5 justify-center items-start text-center md:text-lef">
+            <div className=" flex flex-col w-full md:w-4/5 justify-center items-start text-center md:text-left">
 
-              <h1 className=" text-white-400 my-4 text-4xl font-bold leading-tight">
+              <h1 className=" text-white-400 my-4 text-4xl font-bold ">
                 Create a unique and Beautiful blog easily.!
                 <br/>
                 <br/>
               
               </h1>
-              <p className=" text-white-400 leading-normal text-2xl mb-8">
+              <p className=" text-white-400 text-2xl mb-8">
                 Blog Nukkad provides a vibrant community of bloggers, readers, and influencers, offering opportunities for networking, collaboration, and engagement.
 
               </p>
-              <Link href="/browse-competition" className="mx-auto lg:mx-0 hover:underline bg-blue-400 text-gray-900 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                Get Started
+              
+              <Link href="/login" 
+              className="mx-auto lg:mx-0 hover:underline bg-blue-400 text-gray-900 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+               
+                Create your blog
               </Link>
+              
             </div>
+          
             {/*Right Col*/}
             <div className="w-full md:w-4/6 py-6 text-center">
               <img className="w-full md:w-4/5 z-50" src="hero.png" />
             </div>
           </div>
+          
         </div>
-        <div className="relative -mt-12 lg:-mt-24">
+
+        <div className="mt-12 lg:-mt-24">
           <svg
             viewBox="0 0 1428 174"
             version="1.1"
@@ -72,6 +79,7 @@ const Home = () => {
             </g>
           </svg>
         </div>
+    
         <section className="  bg-white border-b py-8">
           <div className="container max-w-5xl mx-auto m-8">
 
@@ -231,11 +239,11 @@ const Home = () => {
           </div>
           <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
             <div className="w-full pt-6 text-3xl text-gray-600 font-bold text-center">
-              £0
+              $0
               <span className="text-base">for one user</span>
             </div>
             <div className="flex items-center justify-center">
-              <button className="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+              <button className="mx-auto lg:mx-0 hover:underline gradient text-black font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                 Sign Up
               </button>
             </div>
@@ -256,11 +264,11 @@ const Home = () => {
           </div>
           <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
             <div className="w-full pt-6 text-4xl font-bold text-center">
-              £x.99
+              $.50
               <span className="text-base">/ per user</span>
             </div>
             <div className="flex items-center justify-center">
-              <button className="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+              <button className="mx-auto lg:mx-0 hover:underline gradient text-black font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                 Sign Up
               </button>
             </div>
@@ -279,11 +287,11 @@ const Home = () => {
           </div>
           <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
             <div className="w-full pt-6 text-3xl text-gray-600 font-bold text-center">
-              £x.99
+              $99
               <span className="text-base">/ per user</span>
             </div>
             <div className="flex items-center justify-center">
-              <button className="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+              <button className="mx-auto lg:mx-0 hover:underline gradient text-black font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                 Sign Up
               </button>
             </div>
@@ -333,18 +341,26 @@ const Home = () => {
           <div className="w-full mb-4">
             <div className="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t" />
           </div>
-          <h3 className="my-4 text-3xl leading-tight">
-            Main Hero Message to sell yourself!
+          <h3 className="my-4 text-4xl font-bold  leading-tight">
+          Explore the world of Blogging : From Fashion to Finance
           </h3>
           <button className="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Action!
           </button>
         </section>
         {/*Footer*/}
-        <footer className="bg-white">
+        <footer className="bg-blue-300 ">
           <div className="container mx-auto px-8">
             <div className="w-full flex flex-col md:flex-row py-6">
               <div className="flex-1 mb-6 text-black">
+              <img
+          src="/blog12.png"
+          className="h-14 w-14"
+          alt="Flowbite Logo"
+        />
+        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+          Blog Nukkad
+        </span>
                 <a
                   className="text-pink-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
                   href="#"
@@ -354,42 +370,14 @@ const Home = () => {
 
                 </a>
               </div>
+              
               <div className="flex-1">
-                <p className="uppercase text-gray-500 md:mb-6">Links</p>
+                <p className="uppercase text-gray-900   font-bold  text-1xl md:mb-6">Legal</p>
                 <ul className="list-reset mb-6">
                   <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                     <a
                       href="#"
-                      className="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                    >
-                      FAQ
-                    </a>
-                  </li>
-                  <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                    <a
-                      href="#"
-                      className="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                    >
-                      Help
-                    </a>
-                  </li>
-                  <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                    <a
-                      href="#"
-                      className="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                    >
-                      Support
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="flex-1">
-                <p className="uppercase text-gray-500 md:mb-6">Legal</p>
-                <ul className="list-reset mb-6">
-                  <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                    <a
-                      href="#"
-                      className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                      className="no-underline hover:no-underline text-gray-800 hover:text-white"
                     >
                       Terms
                     </a>
@@ -397,7 +385,7 @@ const Home = () => {
                   <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                     <a
                       href="#"
-                      className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                      className="no-underline hover:no-underline text-gray-800 hover:text-white"
                     >
                       Privacy
                     </a>
@@ -405,12 +393,12 @@ const Home = () => {
                 </ul>
               </div>
               <div className="flex-1">
-                <p className="uppercase text-gray-500 md:mb-6">Social</p>
+                <p className="uppercase text-gray-900  font-bold  text-1xl md:mb-6">Social</p>
                 <ul className="list-reset mb-6">
                   <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                     <a
                       href="#"
-                      className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                      className="no-underline hover:no-underline text-gray-800 hover:text-white"
                     >
                       Facebook
                     </a>
@@ -418,7 +406,7 @@ const Home = () => {
                   <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                     <a
                       href="#"
-                      className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                      className="no-underline hover:no-underline text-gray-800 hover:text-white"
                     >
                       Linkedin
                     </a>
@@ -426,7 +414,7 @@ const Home = () => {
                   <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                     <a
                       href="#"
-                      className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                      className="no-underline hover:no-underline text-gray-800 hover:text-white"
                     >
                       Twitter
                     </a>
@@ -434,28 +422,28 @@ const Home = () => {
                 </ul>
               </div>
               <div className="flex-1">
-                <p className="uppercase text-gray-500 md:mb-6">Company</p>
+                <p className="uppercase text-gray-900 font-bold  text-1xl md:mb-6">Company</p>
                 <ul className="list-reset mb-6">
                   <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                     <a
                       href="#"
-                      className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                      className="no-underline hover:no-underline text-gray-800 hover:text-white"
                     >
-                      Official Blog
+                       Blog
                     </a>
                   </li>
                   <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                     <a
                       href="#"
-                      className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                      className="no-underline hover:n0-underline text-gray-800 hover:text-white"
                     >
                       About Us
                     </a>
                   </li>
                   <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                     <a
-                      href="#"
-                      className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                      href="/contact"
+                      className="no-underline hover:no-underline text-gray-800 hover:text-white"
                     >
                       Contact
                     </a>

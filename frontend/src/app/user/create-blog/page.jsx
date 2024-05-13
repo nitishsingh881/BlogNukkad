@@ -84,7 +84,7 @@ const router = useRouter();
                   name="title"
                   onChange={blogForm.handleChange}
                   value={blogForm.values.title}
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
+                  className="shadow-sm bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                   placeholder=""
                   required=""
                 />
@@ -170,7 +170,7 @@ const router = useRouter();
             </div>
         <div className="p-6 border-t border-gray-200 rounded-b">
           <button
-            className="text-white bg-cyan-600 hover:bg-cyan-300 focus:ring-4 focus:ring-cyan-8900 font-medium rounded-lg text-sm px-10 py-3 text-center"
+            className="text-black bg-cyan-300 hover:bg-cyan-300 focus:ring-4 focus:ring-cyan-8900 font-medium rounded-lg text-sm px-10 py-3 text-center"
             type="submit"
           >
             Save Blog
