@@ -10,7 +10,7 @@ const Navbar = () => {
     const displayUserOptions = () => {
         if (loggedIn) {
             return (
-                <div className="hs-dropdown [--strategy:static] sm:[--strategy:fixed] [--adaptive:none] sm:[--trigger:hover] sm:py-4">
+                <div className="hs-dropdown [--strategy:static] sm:[--strategy:fixed] [--adaptive:none] sm:[--trigger:hover] sm:py-0">
                     <img
                         className="inline-block flex-shrink-0 size-[50px] rounded-full"
                         src={`${process.env.NEXT_PUBLIC_API_URL}/${currentUser.avatar}`}
