@@ -17,7 +17,7 @@ const About = () => {
       <h2 className="my-4 font-bold text-3xl  sm:text-4xl ">
         Blog<span className="text-indigo-600"> Nukkad</span>
       </h2>
-      <p className="text-gray-700 text-2xl">
+      <p className="text-gray-700 text-1xl">
       Blog Nukkad provides a vibrant community of bloggers, readers, and influencers, offering opportunities for networking, collaboration, and engagement.
       <p>Blog Nukkad is a platform where people share their thoughts, experiences, and expertise through writing Blog Nukkad is a website where bloggers from all over come together to write and share their stories, ideas, and opinions.</p>
         </p>
