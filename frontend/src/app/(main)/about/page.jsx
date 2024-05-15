@@ -196,40 +196,27 @@ const About = () => {
             <div className="flex flex-wrap">
               <div className="w-5/6 sm:w-2/4 p-6">
                 
-                <h2 className="text-3xl text-black font-bold leading-none mb-3">
-                Competition
-                </h2>
-                <p className=" text-gray-800 leading-normal text-2xl mb-6">
-                Blogging competition is like a race to create the best and most interesting content.
-       It’s about making your blog stand out by writing or sharing things that people really like.
-                  <br />
-                  <br />
-
-
-
-                </p>
+              In the future, blogs will continue to be a vital medium for individuals and businesses to share insights, expertise, and stories. 
+              They'll adapt to changing digital landscapes, becoming more interactive and multimedia-rich. With advancements in AI and machine learning, blogs will offer personalized content experiences, catering to the unique preferences of each reader. 
+              Niche blogs will thrive, catering to specialized interests and communities. Collaboration and cross-promotion between bloggers will increase, fostering a sense of community and expanding audience reach. 
+              
               </div>
               <div className="w-full sm:w-1/2 p-6">
-
                 <img className="w-full md:w-4/5 z-50" src="blog.png" />
               </div>
+
             </div>
+            Emerging technologies like augmented reality (AR) and virtual reality (VR) may revolutionize blog content, offering immersive experiences to readers. Monetization models will diversify, with subscriptions, sponsorships, and affiliate marketing becoming more prevalent. 
+              Despite these changes, the core essence of blogging—authentic storytelling and connection—will remain paramount. Blogs will continue to be platforms for creativity, expression, and knowledge-sharing in the digital age.
+
+
             <div className="flex flex-wrap flex-col-reverse sm:flex-row">
               <div className="w-full sm:w-1/3 p-6 mt-6">
+                
               <img className="w-full md:w-5/5 z-50 rounded-full"  src="quality.png" />
+              
               </div>
-              <div className="w-full sm:w-1/2 p-6 mt-6">
-                <div className="align-middle">
-                  <h1 className="text-3xl text-black font-bold leading-none mb-3">
-                  Quality content
-                  </h1>
-                  <p className="text-gray-900  text-2xl mb-8">
-                  Quality content means creating really good and helpful stuff that people enjoy and find valuable. It's like making content that stands out and makes a positive impression
-                    <br />
-                    <br />
-                  </p>
-                </div>
-              </div>
+              
             </div>
           </div>
         </section>
