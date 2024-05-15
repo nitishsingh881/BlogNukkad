@@ -200,8 +200,11 @@ const About = () => {
               They'll adapt to changing digital landscapes, becoming more interactive and multimedia-rich. With advancements in AI and machine learning, blogs will offer personalized content experiences, catering to the unique preferences of each reader. 
               Niche blogs will thrive, catering to specialized interests and communities. Collaboration and cross-promotion between bloggers will increase, fostering a sense of community and expanding audience reach. 
               
+
+              
               </div>
               <div className="w-full sm:w-1/2 p-6">
+
                 <img className="w-full md:w-4/5 z-50" src="blog.png" />
               </div>
 
@@ -212,9 +215,7 @@ const About = () => {
 
             <div className="flex flex-wrap flex-col-reverse sm:flex-row">
               <div className="w-full sm:w-1/3 p-6 mt-6">
-                
               <img className="w-full md:w-5/5 z-50 rounded-full"  src="quality.png" />
-              
               </div>
               
             </div>
